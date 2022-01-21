@@ -1,0 +1,17 @@
+
+<div class="container mt-5">
+
+    <div class="row pt-5">
+      <div class=" col-md-4 border text-center">
+        <img class="img-fluid" [src]="Product.image"/>
+      </div>
+
+        <div class="col-md-8  py-3">
+          <h4>Brand:<span>{{Product.title}}</span></h4>
+          <h4>Description: <span>{{Product.description}}</span></h4>
+          <h4>category: <span>{{Product.category}}</span></h4>
+          <h4>Price: <span>{{Product.price}}$</span></h4>
+          <button (click)="AddToCart(Product)" class="btn btn-info w-50"> Add To Cart </button>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
+
+
+.img-prod{
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1200 / 1080;
+  padding: 1.2rem;
+}

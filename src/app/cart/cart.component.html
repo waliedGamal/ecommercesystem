@@ -1,0 +1,48 @@
+<main class="container  mt-5 py-5">
+    <ng-container *ngIf="CartProducts.length">
+        <table class="table">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Product Image</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+      <tbody>
+          <tr *ngFor="let product of CartProducts ; index as i">
+            <td>{{i+1}}</td>
+            <td>{{product.title}}</td>
+            <td><img class="w-75 img-prod" [src]="product.image"/></td>
+            <td>{{product.description}}</td>
+            <td>{{product.price}}</td>
+            <td class="text-center">{{Quantity}}</td>
+            <td>{{product.price * Quantity}}</td>
+            <td class="text-center"><i class="bi bi-trash fs-3 text-danger"(click)="DeleteCart(i)" ></i></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="d-flex justify-content-end">
+          <button routerLink="/home" class="btn btn-primary m-2" > Shop More </button>
+          <button (click)="checkout()" class="btn btn-success m-2"> Check Out </button>
+      </div>
+
+    </ng-container>
+
+    <ng-container *ngIf="CartProducts.length == 0">
+      <div class=" col-md-6 py-4 shadow mx-auto text-center">
+        <img class="w-75" src="../../assets/imgs/cart-empty.png" alt="">
+        <h4>Your Carts is empty</h4>
+        <h6>Add item to it now</h6>
+        <button routerLink="/home" class=" btn btn-primary">Shop Now</button>
+      </div>
+
+    </ng-container>
+
+  </main>

@@ -1,0 +1,18 @@
+
+<main class="container mt-5  py-5">
+  <div class="row">
+    <div *ngFor="let product of Products | search:searchKey:'title' " class="col-md-3 py-3 d-flex align-items-center rounded ">
+      <div class="border py-4" >
+        <div class="product" [routerLink]="['/productinfo',product.id]">
+          <img class="img-fluid img-prod" [src]="product.image"/>
+          <div class="ps-2">
+            <h2 class="h6">{{product.title.slice(0,25)}}</h2>
+            <h4 class="">Price: {{product.price}}$</h4>
+          </div>
+        </div>
+          <button (click)="AddToCart(product)" class="btn btn-info ms-2"> Add To Cart </button>
+      </div>
+    </div>
+  </div>
+</main>
+
