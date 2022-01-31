@@ -13,8 +13,9 @@ export class HomeComponent implements OnInit ,DoCheck {
 
   constructor(public _DataService:DataService ,public Router:Router) { }
   searchKey:any
-  Products:Products[]=[];
+  Products:any;
   Cart:any[]=[];
+  CartButton:boolean=true;
 
   ngOnInit(): void {
     this.GetProducts()
@@ -24,7 +25,10 @@ export class HomeComponent implements OnInit ,DoCheck {
   ngDoCheck(): void {
     if(localStorage.getItem("cart") != null){
       this.Cart = JSON.parse(localStorage.getItem("cart") || '')
+    if(this._DataService.category.getValue() != null){
+      this.Products = this._DataService.category.getValue()
     }
+  }
 }
 
   GetProducts(){
@@ -33,11 +37,9 @@ export class HomeComponent implements OnInit ,DoCheck {
     })
   }
 
-  AddToCart(CartProduct:any){
-    this.Cart.push(CartProduct)
-    this.saveCart()
-    this.checkout()
-  }
+  AddToCart(product:any){
+    this._DataService.AddToCart(product,this.Cart)
+}
 
   search(){
     this._DataService.search.subscribe((res)=>{
@@ -45,18 +47,8 @@ export class HomeComponent implements OnInit ,DoCheck {
     })
   }
 
-  checkout(){
-    Swal.fire({
-    position: 'center',
-    icon: 'success',
-    title: 'The Product added to your cart',
-    showConfirmButton: false,
-    timer: 1000
-  })
-  }
-
   saveCart(){
-    localStorage.setItem("cart",JSON.stringify(this.Cart))
+    this._DataService.saveCart(this.Cart)
   }
 
 }

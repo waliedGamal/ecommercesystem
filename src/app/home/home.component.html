@@ -10,7 +10,7 @@
             <h4 class="">Price: {{product.price}}$</h4>
           </div>
         </div>
-          <button (click)="AddToCart(product)" class="btn btn-info ms-2"> Add To Cart </button>
+          <button *ngIf="CartButton" (click)="AddToCart(product)" class="btn btn-info ms-2"> Add To Cart </button>
       </div>
     </div>
   </div>

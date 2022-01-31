@@ -14,7 +14,6 @@ export class ProductinfoComponent implements OnInit,DoCheck {
   Product:any
   CartProducts:any[]=[];
 
-
   ngOnInit(): void {
     this.productInfo()
   }
@@ -31,22 +30,23 @@ export class ProductinfoComponent implements OnInit,DoCheck {
       this.Product = res
     })
   }
+
   AddToCart(product:any){
-    this.CartProducts.push(product)
-    this.saveCart()
-    this.checkout()
-  }
-  checkout(){
-    Swal.fire({
-    position: 'center',
-    icon: 'success',
-    title: 'The Product added to your cart',
-    showConfirmButton: false,
-    timer: 1000
-  })
+    
+    this._DataService.AddToCart(product,this.CartProducts)
+
+      // product.Quantity= 1
+    // product.total=0
+    // for(let i=0; i<this.CartProducts.length; i++){
+    //   if(this.CartProducts[i].id == product.id){
+    //     this.CartProducts[i].Quantity++
+    //   }
+    // }
+    // this.CartProducts.push(product)
+    //   this.saveCart()
+    //   this.checkout()
   }
   saveCart(){
-    localStorage.setItem("cart",JSON.stringify(this.CartProducts))
-  }
-
+    this._DataService.saveCart(this.CartProducts)
+    }
 }

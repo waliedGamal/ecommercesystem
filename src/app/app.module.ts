@@ -10,6 +10,7 @@ import { CartComponent } from './cart/cart.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { SearchPipe } from './search.pipe';
 import { FormsModule } from '@angular/forms';
+import { CategoryPipe } from './category.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     CartComponent,
     NotfoundComponent,
     SearchPipe,
+    CategoryPipe,
   ],
   imports: [
     BrowserModule,

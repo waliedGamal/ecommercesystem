@@ -1,11 +1,33 @@
 @import 'swiper/scss';
 @import 'swiper/scss/navigation';
 @import 'swiper/scss/pagination';
+$mainColor:#358A99;
 
-
+body{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 .img-prod{
   width: 100%;
   height: auto;
   aspect-ratio: 1200 / 1080;
   padding: 1.2rem;
 }
+
+
+// swal2-popup swal2-modal swal2-icon-success swal2-show
+// swal2-icon swal2-success swal2-icon-show
+
+.swal2-icon{
+  margin:auto !important;
+  margin-top: 10px  !important;
+  font-size: 0.6rem !important;
+}
+.swal2-popup{
+  height: 120px;
+  top:60px !important;
+}
+.swal2-title{
+  font-size: 1.4rem !important;
+  // padding: 5px;
+}
+
